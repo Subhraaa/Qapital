@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class QuizBody extends StatelessWidget {
+class MainScreen extends StatelessWidget {
+  const MainScreen(this.startQuiz,{super.key});
+
+  final void Function() startQuiz;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -15,12 +20,12 @@ class QuizBody extends StatelessWidget {
           
           Text(
             'Learn personal finance the fun way!',
-            style: TextStyle(fontSize: 24, color: Colors.white),
+            style: GoogleFonts.lato(fontSize: 24, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 16), // Add some spacing 
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed:startQuiz, // Call the startQuiz callback when the button is pressed
             icon: Icon(Icons.play_arrow),
             label: Text('Start Quiz'),
           ),
